@@ -104,7 +104,7 @@ export default function Layout({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link to={createPageUrl("Home")} className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full flex items-center justify-center glow bg-gradient-to-br from-purple-600 to-pink-500">
-              <img src="/logo.jpeg" alt="Logo" className="w-9.9 h-9.9 rounded-full" />
+              <img src="Logo.png" alt="Logo" className="w-9.9 h-9.9 rounded-full" />
             </div>
             <span className="text-xl font-bold tracking-wider neon-text">SHAHAR MAOZ</span>
           </Link>
@@ -170,7 +170,7 @@ export default function Layout({ children, currentPageName }) {
           <div className="flex flex-col md:flex-row justify-between items-center gap-0 md:gap-8">
             <div className="flex items-center gap-2">
               <div className="w-8 h-1 rounded-full glow bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center">
-                <img src="/logo.jpeg" alt="Logo" className="w-7.9 h-7.9 rounded-full" />
+                <img src="Logo.png" alt="Logo" className="w-7.9 h-7.9 rounded-full" />
               </div>
               <span className="font-bold text-lg">Shahar Maoz</span>
             </div>

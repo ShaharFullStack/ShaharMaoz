@@ -138,14 +138,12 @@ export default function Music() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-        >
-        <h1 className="text-3xl md:text-3=4xl font-bold mb-5">
+        >        <h2 className="text-3xl md:text-4xl font-bold mb-5">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">My Compositions</span>
-        </h1>          
+        </h2>
           <div className="space-y-8">
 
-              {/* Going Nowhere */}
-            <div className="glass-card rounded-lg p-4">
+              {/* Going Nowhere */}            <div className="glass-card rounded-lg p-4 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 hover:transform hover:scale-[1.02]">
               <iframe 
                 title="Going Nowhere - Shahar Maoz Hakim"
                 width="100%" 
@@ -162,8 +160,7 @@ export default function Music() {
                 </a>
               </div>
             </div>
-              {/* When I Fall Asleep */}
-            <div className="glass-card rounded-lg p-4">
+              {/* When I Fall Asleep */}            <div className="glass-card rounded-lg p-4 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 hover:transform hover:scale-[1.02]">
               <iframe 
                 title="When I Fall Asleep - Shahar Maoz Hakim"
                 width="100%" 
@@ -179,16 +176,23 @@ export default function Music() {
                   When I Fall Asleep
                 </a>
               </div>
-            </div>
-                        {/* Leylotaim */}
-            <div className="glass-card rounded-lg p-4">
+            </div>                        {/* Leylotaim */}
+            <div className="glass-card rounded-lg p-4 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 hover:transform hover:scale-[1.02]">
               <iframe 
-                title="Leylotaim" 
+                title="Leylotaim - Shahar Maoz Hakim" 
                 width="100%" 
                 height="100" 
                 allow="autoplay" 
                 src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/960694669&color=%23a5149b&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
               ></iframe>
+              <div className="text-xs text-gray-400 mt-2 font-light">
+                <a href="https://soundcloud.com/rakloze" title="Shahar Maoz Hakim" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-colors">
+                  Shahar Maoz Hakim
+                </a> · 
+                <a href="https://soundcloud.com/rakloze/leylotaim" title="Leylotaim" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-colors ml-1">
+                  Leylotaim
+                </a>
+              </div>
             </div>
           </div>
         </motion.div>

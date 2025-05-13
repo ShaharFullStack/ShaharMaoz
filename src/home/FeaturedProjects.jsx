@@ -57,18 +57,17 @@ export default function FeaturedProjects() {
           viewport={{ once: true }}
           className="flex flex-col md:flex-row justify-between items-center mb-12"
         >
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Featured Projects</span>
-            </h2>
+          <div>            <motion.h2 
+              className="text-3xl md:text-4xl font-bold mb-2"
+              initial={{ backgroundPosition: "0% 50%" }}
+              whileInView={{ backgroundPosition: "100% 50%" }}
+              transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+            >
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 bg-size-200 animate-gradient">Featured Projects</span>
+            </motion.h2>
             <p className="text-gray-400 max-w-xl">Check out some of my creative coding and development work</p>
           </div>
-          <Link 
-            to={createPageUrl("Projects")}
-            className="mt-4 md:mt-0 flex items-center text-purple-400 hover:text-white transition-colors gap-1"
-          >
-            View all projects <ArrowRight size={16} className="ml-1" />
-          </Link>
+
         </motion.div>
         
         {loading ? (
@@ -85,8 +84,16 @@ export default function FeaturedProjects() {
                 viewport={{ once: true }}
               >
                 <ProjectCard project={project} index={index} />
+                
               </motion.div>
-            ))}
+                ))}          <div className="col-span-1 md:col-span-2 lg:col-span-3 flex justify-end mt-6">
+            <Link 
+              to={createPageUrl("Projects")}
+              className="flex items-center gap-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30 hover:transform hover:scale-105"
+            >
+              View all projects <ArrowRight size={16} className="ml-1 animate-pulse" />
+            </Link>
+          </div>
           </div>
         )}
       </div>

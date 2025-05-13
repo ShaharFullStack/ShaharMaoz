@@ -38,11 +38,10 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        >          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">About Me</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-8"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-8 group-hover:w-32 transition-all duration-500"></div>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg">
             My journey into technology was driven by a desire to combine my diverse skills to solve complex problems 
             in innovative ways. From fullstack websites to three.js games and visualizations or musical instruments 
@@ -58,7 +57,7 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="glass-card p-8 rounded-xl bg-opacity-30"
+              className="glass-card p-8 rounded-xl bg-opacity-30 flex flex-col items-center text-center hover:transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
             >
               <div className={`w-14 h-14 rounded-lg bg-gradient-to-r ${skill.color} flex items-center justify-center mb-5`}>
                 {skill.icon}
