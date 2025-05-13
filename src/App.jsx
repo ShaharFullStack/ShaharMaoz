@@ -14,6 +14,7 @@ function AppContent() {
                   location.pathname.substring(2);
 
   return (
+    
     <Layout currentPageName={pageName}>
       <Routes>
         <Route path="/" element={<Home />} />

@@ -23,9 +23,11 @@ module.exports = {
           '50%': { backgroundPosition: '100% 50%' },
           '100%': { backgroundPosition: '0% 50%' },
         },
-      },
-      backgroundSize: {
+      },      backgroundSize: {
         '200': '200% 100%',
+      },      zIndex: {
+        '-1': '-1',
+        '-10': '-10',
       },
     },
   },
