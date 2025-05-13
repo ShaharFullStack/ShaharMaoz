@@ -181,7 +181,7 @@ export default function HeroSection({ removeCanvas }) {
           
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.4 }}
+            animate={{ opacity: 0.7 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="hidden md:block md:w-1/2 lg:w-2/5 mt-8 md:mt-0 md:ml-4"
           >
@@ -189,7 +189,7 @@ export default function HeroSection({ removeCanvas }) {
               src="https://github.com/ShaharFullStack/cryptoProject/blob/master/assets/img/aboutBackground2.png?raw=true" 
               alt="Shahar Maoz Profile" 
               className="rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-500"
-              style={{ height:"700px",  filter: "drop-shadow(2px 2px 20px rgba(191, 85, 236, 0.92))" }}
+              style={{ height:"700px",  filter: "drop-shadow(2px 2px 10px rgba(191, 85, 236, 0.92))" }}
             />
           </motion.div>
         </div>

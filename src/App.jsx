@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import Projects from "./Pages/Projects";
 import Code from "./Pages/Code";
 import Music from "./Pages/Music";
+import Contact from "./Pages/Contact";
 
 function AppContent() {
   const location = useLocation();
@@ -19,6 +20,8 @@ function AppContent() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/code" element={<Code />} />
         <Route path="/music" element={<Music />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>
     </Layout>
   );

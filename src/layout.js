@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "./utils";
-import { Gamepad2, Code, Music, Home, Menu, X } from "lucide-react";
+import { Gamepad2, Code, Music, Home, Menu, X, Linkedin, Github, Mail } from "lucide-react";
 
 export default function Layout({ children, currentPageName }) {
   const [scrolled, setScrolled] = useState(false);
@@ -19,8 +19,16 @@ export default function Layout({ children, currentPageName }) {
     { name: "Home", icon: <Home />, page: "Home" },
     { name: "Projects", icon: <Gamepad2 />, page: "Projects" },
     { name: "Code", icon: <Code />, page: "Code" },
-    { name: "Music", icon: <Music />, page: "Music" }
+    { name: "Music", icon: <Music />, page: "Music" },
+    { name: "Contact", icon: <Mail />, page: "Contact" }
   ];
+
+  const socialLinks = [
+    { name: "LinkedIn", icon: <Linkedin size={20} />, url: "https://www.linkedin.com/in/shaharmh" },
+    { name: "X", icon: <span className="text-xl leading-none">𝕏</span>, url: "https://www.x.com/shaharmh" },
+    { name: "GitHub", icon: <Github size={20} />, url: "https://github.com/ShaharFullStack" }
+  ];
+
   return (
     <div className="min-h-screen bg-[#0f0617] text-white font-sans">
       <style>{`
@@ -70,27 +78,17 @@ export default function Layout({ children, currentPageName }) {
         .floating {
           animation: float 6s infinite ease-in-out;
         }
+
+        .social-icon {
+          transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+          transform: translateY(-3px);
+          filter: drop-shadow(0 0 8px rgba(191, 85, 236, 0.6));
+        }
       `}</style>
-
-      {/* Star background */}
-      <div className="fixed inset-0 z-0 overflow-hidden">
-        {Array.from({ length: 100 }).map((_, i) => (
-          <div
-            key={i}
-            className="star"
-            style={{
-              width: `${Math.random() * 2 + 1}px`,
-              height: `${Math.random() * 2 + 1}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.5 + 0.3,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${Math.random() * 3 + 2}s`
-            }}
-          />
-        ))}
-      </div>
-
+      
       {/* Purple-pink gradient in the background */}
       <div 
         className="fixed inset-0 z-0 opacity-40" 
@@ -99,23 +97,26 @@ export default function Layout({ children, currentPageName }) {
         }}
       />
 
-      {/* Navbar */}
+      {/* Navbar - Three Column Layout */}
       <nav className={`glass-nav fixed top-0 left-0 right-0 z-50 py-3 px-4 md:px-8 transition-all duration-300 ${scrolled ? "py-2" : "py-4"}`}>
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <Link to={createPageUrl("Home")} className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full flex items-center justify-center glow bg-gradient-to-br from-purple-600 to-pink-500">
-              <img src="Logo.png" alt="Logo" className="w-9.9 h-9.9 rounded-full" />
-            </div>
-            <span className="text-xl font-bold tracking-wider neon-text">SHAHAR MAOZ</span>
-          </Link>
+        <div className="max-w-7xl mx-auto grid grid-cols-3 items-center">
+          {/* Logo & Name - Left */}
+          <div className="flex items-center">
+            <Link to={createPageUrl("Home")} className="flex items-center gap-2">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center glow bg-gradient-to-br from-purple-600 to-pink-500">
+                <img src="Logo.png" alt="Logo" className="w-9.8 h-9.8 rounded-full" />
+              </div>
+              <span className="text-xl font-bold tracking-wider neon-text">SHAHAR MAOZ</span>
+            </Link>
+          </div>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Navigation - Center */}
+          <div className="hidden md:flex items-center justify-center gap-5">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={createPageUrl(item.page)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-purple-800/30 hover:scale-105 ${
+                className={`flex items-center gap-1 px-3 py-2 rounded-lg transition-all duration-300 hover:bg-purple-800/30 hover:scale-105 ${
                   currentPageName === item.page 
                     ? "bg-purple-800/50 text-white glow" 
                     : "text-gray-300"
@@ -127,13 +128,31 @@ export default function Layout({ children, currentPageName }) {
             ))}
           </div>
 
+          {/* Social Links - Right */}
+          <div className="hidden md:flex items-center justify-end gap-6">
+            {socialLinks.map((social) => (
+              <a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white social-icon"
+                aria-label={social.name}
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
+
           {/* Mobile menu button */}
-          <button 
-            className="md:hidden p-2 rounded-lg glass-card" 
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden col-span-2 flex justify-end">
+            <button 
+              className="p-2 rounded-lg glass-card" 
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -156,6 +175,24 @@ export default function Layout({ children, currentPageName }) {
               <span className="text-lg">{item.name}</span>
             </Link>
           ))}
+
+          {/* Social links in mobile menu */}
+          <div className="mt-4 pt-4 border-t border-purple-800/30">
+            <div className="flex justify-center gap-6 px-4 py-2">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white social-icon"
+                  aria-label={social.name}
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -167,18 +204,23 @@ export default function Layout({ children, currentPageName }) {
       {/* Footer */}
       <footer className="relative z-10 border-t border-purple-800/30 pt-1 pb-2 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-0 md:gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-1 rounded-full glow bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center">
-                <img src="Logo.png" alt="Logo" className="w-7.9 h-7.9 rounded-full" />
+              <div className="w-8 h-8 rounded-full glow bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center">
+                <img src="Logo.png" alt="Logo" className="w-7.8 h-7.8 rounded-full" />
               </div>
               <span className="font-bold text-lg">Shahar Maoz</span>
+              <span className="hidden md:inline"></span>
             </div>
+
             <div className="text-sm text-gray-400">
               Musician • Programmer • Visual Artist • AI Expert
             </div>
           </div>
-          <div className="text-center text-xs text-gray-500">
+          <div className="md:hidden text-xs text-gray-500 mt-2 text-center">
+            +972-52-534-7274 • rakloze@gmail.com
+          </div>
+          <div className="text-center text-xs text-gray-500 mt-2">
             © {new Date().getFullYear()} Shahar Maoz. All rights reserved.
           </div>
         </div>
