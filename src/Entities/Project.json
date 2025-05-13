@@ -1,0 +1,49 @@
+{
+  "name": "Project",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Name of the project"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the project"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "game",
+        "music",
+        "web",
+        "tool"
+      ],
+      "description": "Category of the project"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "URL of project image"
+    },
+    "project_url": {
+      "type": "string",
+      "description": "URL to the live project or repository"
+    },
+    "technologies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Technologies used in the project"
+    },
+    "featured": {
+      "type": "boolean",
+      "description": "Whether this is a featured project",
+      "default": false
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "category"
+  ]
+}
