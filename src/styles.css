@@ -15,7 +15,19 @@ body {
   color: white;
   overflow-x: hidden;
 }
-
+body::-webkit-scrollbar {
+  background-image: linear-gradient(rgba(128, 0, 128, 0.167), rgba(55, 1, 56, 0.216));
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(83, 11, 99, 0.563);
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+body::-webkit-scrollbar-track-piece {
+  background-color: rgba(54, 2, 56, 0.845);
+}
 /* Global styles */
 .glass-card {
   background: rgba(255, 255, 255, 0.05);

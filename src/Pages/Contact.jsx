@@ -33,10 +33,27 @@ export default function Contact() {
     <div className="max-w-4xl mx-auto px-4 py-12">
       {/* Header */}
       <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 neon-text">
+        <h1 className="text-4xl md:text-5xl font-bold mb-2 neon-text">
           Contact Me
         </h1>
         <div className="w-24 h-1 mx-auto rounded-full glow bg-gradient-to-r from-purple-600 to-pink-500"></div>
+        
+      {/* Profile Image and Name Section */}
+      <div className="mt-6 text-center">
+        <div className="w-40 h-40 mx-auto rounded-full glow bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center">
+          <img 
+            src="me.JPEG" 
+            alt="Shahar Maoz" 
+            className="w-40 h-40 rounded-full object-cover"
+          />
+        </div>
+        <h2 className="mt-6 text-3xl font-bold neon-text">Shahar Maoz</h2>
+        <h2 className="mt-2 text-2xl font-bold neon-text">+972-52-534-7274</h2>
+        <h2 className="mt-2 text-2xl font-bold neon-text">rakloze@gmail.com</h2>
+        <p className="mt-8 text-gray-400">
+          Musician • Programmer • Visual Artist • AI Expert
+        </p>
+      </div>
         <p className="mt-6 text-lg text-gray-300 max-w-2xl mx-auto">
           Feel free to reach out through any of these channels. I'm always open to new opportunities, collaborations, or just a friendly chat.
         </p>
@@ -71,21 +88,6 @@ export default function Contact() {
         ))}
       </div>
 
-      {/* Profile Image and Name Section */}
-      <div className="mt-16 text-center">
-        <div className="w-40 h-40 mx-auto rounded-full glow bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center">
-          <img 
-            src="me.JPEG" 
-            alt="Shahar Maoz" 
-            className="w-40 h-40 rounded-full object-cover"
-          />
-        </div>
-        <h2 className="mt-6 text-3xl font-bold neon-text">Shahar Maoz</h2>
-        <h2 className="mt-2 text-2xl font-bold neon-text">+972-52-534-7274</h2>
-        <p className="mt-7 text-gray-400">
-          Musician • Programmer • Visual Artist • AI Expert
-        </p>
-      </div>
       
       {/* Optional Additional Info */}
       <div className="mt-2 text-center">
